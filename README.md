@@ -8,15 +8,16 @@
 - [카카오](https://tech.kakao.com/tag/frontend/)
 
 # JavaScript
-- Function
-- hoisting
-- Closure
-- setInterval()
-- setTimeout()
-- clearInterval()
-- Math 객체
-- Date 객체
-- String 객체
+- [Function](https://github.com/Yejin-J/TIL/blob/main/JavaScript/function.md)
+- [hoisting](https://github.com/Yejin-J/TIL/blob/main/JavaScript/hoisting.md)
+- [Closure](https://github.com/Yejin-J/TIL/blob/main/JavaScript/Closure.md)
+- [setInterval()](https://github.com/Yejin-J/TIL/blob/main/JavaScript/func_setInterval().md)
+- [setTimeout()](https://github.com/Yejin-J/TIL/blob/main/JavaScript/func_setTimeout().md)
+- [clearInterval()](https://github.com/Yejin-J/TIL/blob/main/JavaScript/func_clearInterval().md)
+- [Math 객체](https://github.com/Yejin-J/TIL/blob/main/JavaScript/func_Math.md)
+- [Date 객체](https://github.com/Yejin-J/TIL/blob/main/JavaScript/Object_Daate.md)
+- [String 객체]
+- [DOM](https://github.com/Yejin-J/TIL/blob/main/JavaScript/DOM.md)
 
 # 앞으로 공부할 언어
 - React
