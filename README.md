@@ -7,6 +7,11 @@
 - [우아한 형제들](https://techblog.woowahan.com/)
 - [카카오](https://tech.kakao.com/tag/frontend/)
 
+# 유용한 사이트
+- [DOM 트리구조](https://software.hixie.ch/utilities/js/live-dom-viewer/)
+- [한글 Lorem Ipsum](http://guny.kr/stuff/klorem/)
+
+
 # JavaScript
 - [Function](https://github.com/Yejin-J/TIL/blob/main/JavaScript/function.md)
 - [hoisting](https://github.com/Yejin-J/TIL/blob/main/JavaScript/hoisting.md)
