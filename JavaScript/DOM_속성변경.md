@@ -1,3 +1,9 @@
+**정리된 내용**
+
+- addEventListener()
+- setAttribute()
+
+---
 # .addEventListener(이벤트, 핸들러함수, 옵션)
 
 - 이벤트 : click과 같은 이벤트 이름
