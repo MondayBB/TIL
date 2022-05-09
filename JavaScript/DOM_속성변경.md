@@ -21,7 +21,7 @@ function popUp(){
 }
 ```
 
-addEventListener는 호출할 때마다 다른 핸들러함수를 붙일 수 있다.
+`addEventListener`는 호출할 때마다 다른 핸들러함수를 붙일 수 있다.
 
 ```jsx
 bgColor.addEventListener('click',popUp);
