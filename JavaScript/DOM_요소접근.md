@@ -1,4 +1,4 @@
-**정리된 내용**
+**⭐본문에 작성된 함수**
 
 - getElementById()
 - getElementsByClassName()
