@@ -76,6 +76,12 @@ document.querySelector('div'); //첫번째 div 태그만 불러온다.
 document.querySelector('#text'); //id 선택자를 불러오러면 앞에 #을 붙여줘야 한다.
 document.querySelector('.textColor'); //class 선택자를 불러오려면 앞에 .을 붙여줘야 한다.
 ```
+속성 노드까지 접근이 가능하다.
+```jsx
+let text = document.querySelector('#text');
+text.style = 'font-size:50px';
+//#text의 폰트 크키가 50px로 변경된다.
+```
 
 # document.querySelectorAll()[index]
 
