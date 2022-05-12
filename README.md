@@ -22,7 +22,7 @@
 - [clearInterval()](https://github.com/Yejin-J/TIL/blob/main/JavaScript/func_clearInterval().md)
 - [Math 객체](https://github.com/Yejin-J/TIL/blob/main/JavaScript/func_Math.md)
 - [Date 객체](https://github.com/Yejin-J/TIL/blob/main/JavaScript/Object_Date.md)
-- [String 객체]
+- [String 객체](https://github.com/Yejin-J/TIL/blob/main/JavaScript/Object_String.md)
 - [DOM](https://github.com/Yejin-J/TIL/blob/main/JavaScript/DOM.md)
 - [DOM 요소접근](https://github.com/Yejin-J/TIL/blob/main/JavaScript/DOM_%EC%9A%94%EC%86%8C%EC%A0%91%EA%B7%BC.md)
 - [DOM 속성변경](https://github.com/Yejin-J/TIL/blob/main/JavaScript/DOM_%EC%86%8D%EC%84%B1%EB%B3%80%EA%B2%BD.md)
