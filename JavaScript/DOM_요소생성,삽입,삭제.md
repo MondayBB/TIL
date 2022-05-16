@@ -7,6 +7,7 @@
 - node.before()
 - node.after()
 - node.replaceWith()
+- node.remove()
 
 ---
 
@@ -98,3 +99,20 @@ tit.replaceWith(titText); // 변수tit를 titText로 교체된다.
 - node 안에 노드나 텍스트가 삽입되는 메서드 : node.append(), node.prepend()
 - node 바깥에 노드나 텍스트가 삽입되는 메서드 : node.before(), node.after()
 - 기존 node와 교체하는 메서드 : node.replaceWith()
+
+---
+
+# [요소 삭제]
+# node.remove()
+노드를 삭제한다.
+```jsx
+let tit = document.createElement("h1");
+tit.innerHTML = "안녕!";
+document.body.append(tit);
+
+let titText = document.createTextNode("하세요!");
+tit.append(titText);
+
+titText.remove();
+// 결과 => 안녕!
+```
