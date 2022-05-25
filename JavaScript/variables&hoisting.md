@@ -1,3 +1,29 @@
+# 변수를 선언하는 방법
+변수를 선언하는 방법에는 3가지가 있다.
+- **var** (사용X)
+- **let** (값 변경 가능)
+- **const** (값 변경 불가)   
+```jsx
+// var는 먼저 선언되지 않아도 호출할 수 있다.
+console.log(a); // undefined
+var a = 5;
+console.log(a);
+
+// let은 먼전 선언되어야만 호출할 수 있다.
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b = 10;
+b = 20;
+console.log(b); // 20
+
+// const에게 할당된 값은 변경할 수 없다.
+const b = 10;
+b = 50;
+console.log(b); //TypeError: Assignment to constant variable.
+```
+## ⭐ **기본적으로 const를 사용하고, 변수를 업데이트 할 때 let을 사용한다. var는 절대 쓰지 않는다.**
+
+***
+
 # var 호이스팅(hoisting)이란?
 
 var로 선언한 모든 변수가 함수의 최상위로 끌어올려지는 현상 (hoist : 끌어올리다)
