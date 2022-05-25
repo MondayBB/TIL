@@ -15,7 +15,7 @@
 
 # JavaScript
 - [Function](https://github.com/Yejin-J/TIL/blob/main/JavaScript/function.md)
-- [hoisting](https://github.com/Yejin-J/TIL/blob/main/JavaScript/hoisting.md)
+- [variables&hoisting](https://github.com/Yejin-J/TIL/blob/main/JavaScript/variables&hoisting.md)
 - [Closure](https://github.com/Yejin-J/TIL/blob/main/JavaScript/Closure.md)
 - [setInterval()](https://github.com/Yejin-J/TIL/blob/main/JavaScript/func_setInterval().md)
 - [setTimeout()](https://github.com/Yejin-J/TIL/blob/main/JavaScript/func_setTimeout().md)
