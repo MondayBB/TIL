@@ -141,3 +141,23 @@ let add = (function(num1, num2){
   return console.log(num1 + num2);
 }(10,20)); //30 
 ```
+***
+   
+# **⭐return**
+   
+- 함수의 값을 출력할 때는 `return`이 있어야 한다.
+```jsx
+function addNumber(a, b){
+  return a + b;
+}
+console.log(addNumber(5,6)); // 11
+```
+   
+- `return` 아래에 있는 코드는 실행되지 않는다.
+```jsx
+function addNumber(a, b){
+  return a + b;
+  console.log("Hello!"); // X
+}
+console.log(addNumber(5,6)); // 11
+```
