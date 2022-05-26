@@ -25,3 +25,29 @@ console.log(player);
 player.points = player.points + 35;
 console.log(player.points); //45
 ```
+
+객체를 활용한 계산기 만들기
+```jsx
+const calculator = {
+  add : function(a, b){
+    return a + b;
+  },
+  minus : function(a, b){
+    return a - b;
+  },
+  multi : function(a, b){
+    return a * b;
+  },
+  div : function(a, b){
+    return a / b;
+  },
+  power : function(a, b){
+    return a ** b;
+  },
+}
+const add = calculator.add(522, 255);
+const minus = calculator.minus(522, 255);
+const multi = calculator.multi(5, 10);
+const div = calculator.div(5, 10);
+const power = calculator.power(2, 3);
+```
