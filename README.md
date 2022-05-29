@@ -28,6 +28,7 @@
 - [DOM 요소접근](https://github.com/Yejin-J/TIL/blob/main/JavaScript/DOM_%EC%9A%94%EC%86%8C%EC%A0%91%EA%B7%BC.md)
 - [DOM 요소생성,삽입,삭제](https://github.com/Yejin-J/TIL/blob/main/JavaScript/DOM_%EC%9A%94%EC%86%8C%EC%83%9D%EC%84%B1%2C%EC%82%BD%EC%9E%85%2C%EC%82%AD%EC%A0%9C.md)
 - [Class](https://github.com/Yejin-J/TIL/blob/main/JavaScript/Class.md)
+- [Object](https://github.com/Yejin-J/TIL/blob/main/JavaScript/Object.md)
 
 # 앞으로 공부할 언어
 - React
