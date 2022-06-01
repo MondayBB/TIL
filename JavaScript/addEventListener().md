@@ -38,9 +38,41 @@ function popUp2(){
    
 ***   
 # ⭐이벤트 종류
-- click : 요소를 클릭하면 이벤트가 발생한다.
-- mouseover : 마우스가 요소 위에 있을 때 이벤트가 발생한다.
-- mouseenter : 마우스가 요소 위에 있을 때 이벤트가 발생한다. **버블링이 발생하지 않는다.**
-- mouseout : 마우스가 요소를 벗어날 때 이벤트가 발생한다.
-- mouseleave : 마우스가 요소를 벗어날 때 이벤트가 발생한다. **버블링이 발생하지 않는다.**   
+- **click** : 요소를 클릭하면 이벤트가 발생한다.
+- **mouseover** : 마우스가 요소 위에 있을 때 이벤트가 발생한다.
+- **mouseenter** : 마우스가 요소 위에 있을 때 이벤트가 발생한다. **버블링이 발생하지 않는다.**
+- **mouseout** : 마우스가 요소를 벗어날 때 이벤트가 발생한다.
+- **mouseleave** : 마우스가 요소를 벗어날 때 이벤트가 발생한다. **버블링이 발생하지 않는다.**   
 * 버블링 : 한 요소에 이벤트가 발생하면 이 요소에 할당된 핸들러가 동작하고, 이어서 부모 요소의 핸들러가 동작, 최상단 부모 요소까지 핸들러가 동작하는 현상이다.
+- **resize** : 요소의 크기가 변경되면 이벤트가 발생한다.
+```jsx
+function handleWindowResize(){
+  document.body.style.backgroundColor = "tomato";
+}
+
+window.addEventListener("resize", handleWindowResize);
+```   
+- **copy** : 요소를 복사할 때 이벤트가 발생한다.
+```jsx
+function handleWindowCopy(){
+  alert("지금 복사했지!");
+}
+
+window.addEventListener("copy", handleWindowCopy);
+```   
+- **offline** : 인터넷이 끊기면 이벤트가 발생한다.
+```jsx
+function handleWindowOffline(){
+  alert("SOS no WIFI");
+}
+
+window.addEventListener("offline", handleWindowOffline);
+```   
+- **online** : 인터넷이 연결되면 이벤트가 발생한다.
+```jsx
+function handleWindowOnline(){
+  alert("ALL GOOD");
+}
+
+window.addEventListener("online", handleWindowOnline);
+```
