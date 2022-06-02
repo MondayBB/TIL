@@ -1,3 +1,8 @@
+**⭐ 본문에 사용된 함수**
+- classList.contains()
+- classList.remove()
+- classList.add()
+- classList.toggle()   
 ```jsx
 const h1 = document.querySelector(".hello:nth-of-type(1) h1");
 /* function colorChange(){
