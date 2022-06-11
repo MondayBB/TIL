@@ -44,12 +44,12 @@ function popUp2(){
 - **mouseout** : 마우스가 요소를 벗어날 때 이벤트가 발생한다.
 - **mouseleave** : 마우스가 요소를 벗어날 때 이벤트가 발생한다. **버블링이 발생하지 않는다.**   
 * 버블링 : 한 요소에 이벤트가 발생하면 이 요소에 할당된 핸들러가 동작하고, 이어서 부모 요소의 핸들러가 동작, 최상단 부모 요소까지 핸들러가 동작하는 현상이다.
-- **resize** : 요소의 크기가 변경되면 이벤트가 발생한다.
+- **resize** : 요소의 크기가 변경되면 이벤트가 발생한다. resize 이벤트는 **window 객체에서만 발생**한다. 
 ```jsx
 function handleWindowResize(){
   document.body.style.backgroundColor = "tomato";
 }
-
+// window 객체에서만 발생하는 이벤트이므로 addEventListener 사용 시 주의할 것
 window.addEventListener("resize", handleWindowResize);
 ```   
 - **copy** : 요소를 복사할 때 이벤트가 발생한다.
