@@ -13,5 +13,5 @@ input의 유효성 검사를 작동시키기 위해서는 input이 form으로 �
 기본적으로 `min`, `max`, `step` 속성을 사용하며, `min = 최소값`, `max = 최대값`, `step = 조절간격`을 지정할 수 있다.
 
 
-[그 외 다양한 input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)
+[그 외 다양한 input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)   
 [그 외 다양한 input 속성](https://developer.mozilla.org/ko/docs/Web/HTML/Element/Input)
