@@ -99,3 +99,4 @@ let interval = setInterval(function(){
   document.getElementById("eventSecNum").innerHTML = sec;
 }, 1000);
 ```
+[D-day 업데이트](https://github.com/Yejin-J/TIL/blob/master/%EB%AC%B8%EC%A0%9C%ED%95%B4%EA%B2%B0/D-day%20%EC%B9%B4%EC%9A%B4%ED%84%B0.md)
