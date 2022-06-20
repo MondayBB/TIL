@@ -10,17 +10,28 @@
 ```
    
 ### ✔sub.js
-export를 사용하여 내보낸다. `export default 변수명/함수명`   
+export를 사용하여 내보낸다.
 ```jsx
 const test = "abcdefg";
 
+//방법1
 export default test;
+
+//방법2
+export {test};
 ```
 
 ### ✔main.js
 import ~ from 을 사용하여 불러온다. `import 변수명/함수명 from "파일명"`   
 `./sub.js` 는 `main.js`와 같은 위치에 있다는 뜻이다.
 ```jsx
+//방법1
 import test from "./sub.js";
+
+//방법2
+import {test} from "./sub.js";
+
 console.log(test);
 ```
+
+[참고](https://ko.javascript.info/import-export)
