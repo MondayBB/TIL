@@ -52,6 +52,31 @@
     #next{
       right: 5%;
     }
+
+    .animated{
+      transition: left 0.5s ease;
+    }
+    .minibar{
+      position: absolute;
+      bottom: 10px;
+      width: auto;
+      height: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    .minibar li{
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      margin: 0 5px;
+      transition: 0.5s;
+    }
+    .minibar li:hover, .minibar li.active{
+      background: rgba(255, 255, 255, 1);
+    }
   </style>
 </head>
 <body>
@@ -64,6 +89,9 @@
       <li class="slide" style="background: orange;"></li>
     </ul>
 
+    <ul class="minibar">
+
+    </ul>
     <a href="#" id="prev"><</a>
     <a href="#" id="next">></a>
   </div>
@@ -76,33 +104,51 @@
     let currentIndex = 0;
     // let topHeight = 0;
 
+    const minibar = document.querySelector(".minibar");
+
     const navPrev = document.querySelector("#prev");
     const navNext = document.querySelector("#next");
 
 
     for(i=0; i < slideCounter; i++){
       slides[i].style.left = `${i*100}%`;
+      const minibarLi = document.createElement("li");
+      minibarLi.classList.add("miniList");
+      minibar.append(minibarLi);
     }
+
+    const minibarList = minibar.querySelectorAll("li");
+    minibarList[0].classList.add("active");
 
     function goToSlide(idx){
       sliderContainer.style.left = `${idx * -100}%`;
       currentIndex = idx;
+      sliderContainer.classList.add("animated");
+      minibarList[idx].classList.add("active");
     }
 
     navPrev.addEventListener("click", () => {
       if(currentIndex != 0){
         goToSlide(currentIndex - 1);
+        minibarList[currentIndex+1].classList.remove("active");
       }else{
         goToSlide(slideCounter - 1);
+        minibarList[0].classList.remove("active");
       }
     });
     navNext.addEventListener("click", () => {
       if(currentIndex < slideCounter-1){
         goToSlide(currentIndex + 1);
+        minibarList[currentIndex-1].classList.remove("active");
       }else{
         goToSlide(0);
+        minibarList[slideCounter-1].classList.remove("active");
       }
     });
+
+    setInterval(function slide(){
+      navNext.click();
+    },5000);
 
   </script>
 </html>
