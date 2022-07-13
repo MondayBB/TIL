@@ -99,27 +99,32 @@
     // 변수 지정
     const sliderWrapper = document.querySelector(".container");
     const sliderContainer = document.querySelector(".slider-container");
-    const slides = document.querySelectorAll(".slide");
+    let slides = document.querySelectorAll(".slide");
     let slideCounter = slides.length;
     let currentIndex = 0;
-    // let topHeight = 0;
 
     const minibar = document.querySelector(".minibar");
+    
 
     const navPrev = document.querySelector("#prev");
     const navNext = document.querySelector("#next");
 
-
-    for(i=0; i < slideCounter; i++){
-      slides[i].style.left = `${i*100}%`;
-      const minibarLi = document.createElement("li");
-      minibarLi.classList.add("miniList");
-      minibar.append(minibarLi);
+    
+    // 슬라이드 생성
+    function slideCreate(slideLength){
+      for(i=0; i < slideLength; i++){
+        slides[i].style.left = `${i*100}%`;
+        let minibarLiCreate = document.createElement("li");
+        minibarLiCreate.classList.add("miniList");
+        minibar.append(minibarLiCreate);
+      }
     }
+    slideCreate(slideCounter);
 
     const minibarList = minibar.querySelectorAll("li");
     minibarList[0].classList.add("active");
 
+    // 슬라이드 뷰 왼쪽으로 100%씩 이동
     function goToSlide(idx){
       sliderContainer.style.left = `${idx * -100}%`;
       currentIndex = idx;
@@ -127,6 +132,7 @@
       minibarList[idx].classList.add("active");
     }
 
+    // 왼쪽으로 롤링
     navPrev.addEventListener("click", () => {
       if(currentIndex != 0){
         goToSlide(currentIndex - 1);
@@ -136,6 +142,7 @@
         minibarList[0].classList.remove("active");
       }
     });
+    // 오른쪽으로 롤링
     navNext.addEventListener("click", () => {
       if(currentIndex < slideCounter-1){
         goToSlide(currentIndex + 1);
@@ -146,9 +153,31 @@
       }
     });
 
-    setInterval(function slide(){
-      navNext.click();
-    },5000);
+    // 정해진 시간에 새로고침하는 함수
+    function eventTime(){
+      let eventBanEnd = new Date(2022,7-1,13,17,16,30).getTime();
+      let introDate = new Date().getTime();
+      
+      if(eventBanEnd <= introDate && eventBanEnd+6000 >= introDate){
+        location.reload();
+      }
+    }
+    
+    // 새로고침 시 사라지는 배너
+    let eventBanEnd = new Date(2022,7-1,13,17,16,30).getTime();
+    let introDate = new Date().getTime();
+    if(eventBanEnd <= introDate)(
+      slides[0].remove()
+      )
 
+
+    
+    // 5초마다 롤링되는 함수
+    function introSlide(){
+      navNext.click();
+      eventTime();
+      console.log(new Date())
+    }
+    setInterval(introSlide,5000);
   </script>
 </html>
