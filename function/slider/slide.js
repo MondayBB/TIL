@@ -7,12 +7,8 @@ let currentIndex = 0;
 
 const minibar = document.querySelector(".minibar");
 
-
 const navPrev = document.querySelector("#prev");
 const navNext = document.querySelector("#next");
-
-
-// sliderContainer.style.width = `${slideCounter * 100}%`;
 
 
 
@@ -25,7 +21,7 @@ function dot(slides){
 }
 
 // 정해진 시간에 새로고침하는 함수
-let eventBanEnd = new Date(2022,7-1,13,21,57).getTime();
+let eventBanEnd = new Date(2022,7-1,16,22,29,30).getTime();
 
 function eventTime(){
   let introDate = new Date().getTime();
@@ -46,6 +42,7 @@ if(eventBanEnd <= introDate){
   dot(slideCounter);
 }
 
+// 페이지 로드 시 디폴트 도트
 let minibarLi = minibar.querySelectorAll("li");
 minibarLi[0].classList.add("active");
 
@@ -55,8 +52,22 @@ function goToSlide(idx){
   sliderContainer.style.left = `${idx * -100}%`;
   currentIndex = idx;
   sliderContainer.classList.add("animated");
-  // minibarList[idx].classList.add("active");
 }
+
+
+// 도트를 누르면 해당 슬라이드로 이동
+let minibarLiArr = Array.from(minibarLi);
+minibarLiArr.forEach(function(e){
+  e.addEventListener("click", function(){
+    for(let i=0; i<minibarLi.length; i++){
+      minibarLi[i].classList.remove("active");
+    }
+    e.classList.add("active");
+    let minibarLiArrIdx = minibarLiArr.indexOf(e);
+    goToSlide(minibarLiArrIdx);
+  })
+})
+
 
 // 왼쪽으로 롤링
 navPrev.addEventListener("click", () => {
@@ -84,8 +95,6 @@ navNext.addEventListener("click", () => {
 });
 
 
-
-
 // 5초마다 롤링되는 함수
 function introSlide(){
   navNext.click();
@@ -93,3 +102,4 @@ function introSlide(){
   console.log(new Date())
 }
 setInterval(introSlide,5000);
+
