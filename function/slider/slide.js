@@ -1,105 +1,107 @@
 // 변수 지정
-const sliderWrapper = document.querySelector(".container");
-const sliderContainer = document.querySelector(".slider-container");
-let slides = document.querySelectorAll(".slide");
-let slideCounter = slides.length;
-let currentIndex = 0;
+const container = document.querySelector(".container");
+const slideUl = document.querySelector("#slider");
+const slideLi = document.querySelectorAll(".slide");
+let slideAppear = slideUl.querySelectorAll(".appear");
+let index = 0;
 
 const minibar = document.querySelector(".minibar");
+const minibarLi = minibar.querySelectorAll("li");
+let minibarLiAppear = minibar.querySelectorAll(".appear");
 
-const navPrev = document.querySelector("#prev");
-const navNext = document.querySelector("#next");
+const prev = document.querySelector("#prev");
+const next = document.querySelector("#next");
 
 
+// slide container의 너비
+slideUl.style.width = `${slideAppear.length * 100}%`;
 
-// 슬라이드 도트 생성
-function dot(slides){
-  for(i=0; i<slides; i++){
-    let slidesDot = document.createElement("li");
-    minibar.append(slidesDot);
-  }
+minibarLiAppear[0].classList.add("active");
+
+
+// 이벤트 오픈과 종료
+const eventEndDate = new Date(2022,7-1,17,20,27).getTime();
+const eventStartDate = new Date(2022,7-1,17,20,26,30).getTime();
+const introDate = new Date().getTime();
+
+// 이벤트 종료
+if(introDate >= eventEndDate){
+  slideLi[3].classList.remove("appear");
+  slideLi[3].classList.add("hide");
+  minibarLi[3].classList.remove("appear");
+  minibarLi[3].classList.add("hide");
+}
+// 이벤트 오픈
+if(eventStartDate <= introDate){
+  slideLi[1].classList.remove("hide");
+  slideLi[1].classList.add("appear");
+  minibarLi[1].classList.remove("hide");
+  minibarLi[1].classList.add("appear");
 }
 
-// 정해진 시간에 새로고침하는 함수
-let eventBanEnd = new Date(2022,7-1,16,22,29,30).getTime();
-
-function eventTime(){
-  let introDate = new Date().getTime();
-  if(eventBanEnd <= introDate && eventBanEnd+6000 >= introDate){
+// 특정 시간에 페이지 새로고침
+function eventEndTime(){
+  const introDate = new Date().getTime();
+  if(introDate >= eventEndDate && introDate <= eventEndDate+5000){
+    location.reload();
+  }
+  if(introDate >= eventStartDate && introDate <= eventStartDate+5000){
     location.reload();
   }
 }
-
-// 새로고침 시 사라지는 배너
-let introDate = new Date().getTime();
-if(eventBanEnd <= introDate){
-  slides[2].remove();
-  slideCounter -= 1;
-  sliderContainer.style.width = `${slideCounter * 100}%`;
-  dot(slideCounter);
-}else{
-  sliderContainer.style.width = `${slideCounter * 100}%`;
-  dot(slideCounter);
-}
-
-// 페이지 로드 시 디폴트 도트
-let minibarLi = minibar.querySelectorAll("li");
-minibarLi[0].classList.add("active");
+minibarLiAppear = minibar.querySelectorAll(".appear");
+slideAppear = slideUl.querySelectorAll(".appear");
 
 
-// 슬라이드 뷰 왼쪽으로 100%씩 이동
-function goToSlide(idx){
-  sliderContainer.style.left = `${idx * -100}%`;
-  currentIndex = idx;
-  sliderContainer.classList.add("animated");
-}
-
-
-// 도트를 누르면 해당 슬라이드로 이동
-let minibarLiArr = Array.from(minibarLi);
+// 도트 클릭하면 해당 슬라이드로 이동
+let minibarLiArr = Array.from(minibarLiAppear);
 minibarLiArr.forEach(function(e){
   e.addEventListener("click", function(){
-    for(let i=0; i<minibarLi.length; i++){
-      minibarLi[i].classList.remove("active");
+    for(let i=0; i<minibarLiAppear.length; i++){
+      minibarLiAppear[i].classList.remove("active");
     }
     e.classList.add("active");
-    let minibarLiArrIdx = minibarLiArr.indexOf(e);
-    goToSlide(minibarLiArrIdx);
+    let liIndex = minibarLiArr.indexOf(e);
+    index = liIndex;
+    slideUl.style.left = `${index* -100}%`;
   })
 })
 
 
-// 왼쪽으로 롤링
-navPrev.addEventListener("click", () => {
-  if(currentIndex != 0){
-    goToSlide(currentIndex - 1);
-    minibarLi[currentIndex].classList.add("active");
-    minibarLi[currentIndex+1].classList.remove("active");
-  }else{
-    goToSlide(slideCounter - 1);
-    minibarLi[slideCounter - 1].classList.add("active");
-    minibarLi[0].classList.remove("active");
-  }
-});
-// 오른쪽으로 롤링
-navNext.addEventListener("click", () => {
-  if(currentIndex < slideCounter-1){
-    goToSlide(currentIndex + 1);
-    minibarLi[currentIndex].classList.add("active");
-    minibarLi[currentIndex-1].classList.remove("active");
-  }else{
-    goToSlide(0);
-    minibarLi[0].classList.add("active");
-    minibarLi[slideCounter-1].classList.remove("active");
-  }
-});
 
-
-// 5초마다 롤링되는 함수
-function introSlide(){
-  navNext.click();
-  eventTime();
-  console.log(new Date())
+// 좌우 슬라이드
+function nextSlide(){
+  index++;
+  if(index >= slideAppear.length){
+    index = 0;
+    slideUl.style.left = `${index* -100}%`;
+    minibarLiAppear[slideAppear.length-1].classList.remove("active");
+    minibarLiAppear[index].classList.add("active");
+  } else{
+    slideUl.style.left = `${index* -100}%`;
+    minibarLiAppear[index-1].classList.remove("active");
+    minibarLiAppear[index].classList.add("active");
+  }
 }
-setInterval(introSlide,5000);
+function prevSlide(){
+  index--;
+  if(index < 0){
+    index = slideAppear.length-1;
+    slideUl.style.left = `${index* -100}%`;
+    minibarLiAppear[0].classList.remove("active");
+    minibarLiAppear[index].classList.add("active");
+  } else{
+    slideUl.style.left = `${index* -100}%`;
+    minibarLiAppear[index+1].classList.remove("active");
+    minibarLiAppear[index].classList.add("active");
+  }
+}
+next.addEventListener("click",nextSlide);
+prev.addEventListener("click",prevSlide);
 
+
+setInterval(function(){
+  next.click();
+  eventEndTime();
+  console.log(new Date());
+}, 5000);

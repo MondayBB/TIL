@@ -16,8 +16,10 @@ body{
   padding: 0;
   margin : 0;
   left: 0px;
-  display: flex;
+  /* display: flex; */
   flex-direction: row;
+  transition: 0.3s;
+  clear: both;
 }
 .slide{
   /* position: absolute; */
@@ -25,6 +27,7 @@ body{
   height: 550px;
   display: inline-block;
   list-style: none;
+  float: left;
 }
 a{
   width: 50px;
@@ -65,7 +68,6 @@ a{
   display: inline-block;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
-  margin: 0 5px;
   transition: 0.5s;
 }
 .minibar li:hover, .minibar li.active{
@@ -74,4 +76,10 @@ a{
 .minibar li.active{
   width: 30px;
   border-radius: 10px;
+}
+#slide li.hide, .minibar li.hide{
+  display: none;
+}
+#slide li.appear, .minibar li.appear{
+  display: inline-block;
 }
