@@ -105,3 +105,69 @@ setInterval(function(){
   eventEndTime();
   console.log(new Date());
 }, 5000);
+
+
+
+// 모바일 스와이프
+let startPos = 0; // touchstart 지점에서 찍히는 screenX
+let offset = 0; // touch를 시작하고 나서의 변위, 변위 = 나중 위치 값 - 처음 위치 값
+let curPos = 0; // 현재 슬라이드의 위치, inner가 마지막에 움직이는 위치 정의
+const screenWidth = container.clientWidth;
+// clientWidth = padding을 포함한 px단위의 요소 가시너비 반환
+
+window.onload = function () {
+  // touchstart = 하나 이상의 터치 포인트가 터치 표면에 배치되면 이벤트 시작
+  // 터치를 드래그함으로써 이미지를 넘길 것이기 때문에 터치를 시작한 위치 구하기
+  container.addEventListener("touchstart", (e) => {
+    startPos = e.touches[0].pageX;
+    // touch.pageX = 스크롤 오프셋을 포함하여 뷰포트를 기준으로 터치 포인트의 x 좌표를 반환
+    console.log(startPos);
+  });
+
+  // touchmove = 하나 이상의 터치 포인트가 터치 표면을 따라 이동할 때 이벤트 시작
+  // 스와이프 하고 있는 동안 이미지가 따라와야 함
+  // targetTouches = 터치 표면과 여전히 접촉하고 있고, 현재 대상 요소와 동일한 대상 내에서 이벤트가 발생한 터치 포인트의 TouchList 모든 개체를 나열
+  container.addEventListener("touchmove", (e) => {
+    // e.targetTouches[0].pageX = x좌표 드래그 값
+    offset = curPos + (e.targetTouches[0].pageX - startPos); // 터치 드래그 값 - 터치 시작 위치
+    if(offset < -(screenWidth*slideAppear.length)){
+      offset = -(screenWidth*slideAppear.length);
+      slideUl.style.left = `${offset}px`;
+    }else if(offset > 0){
+      offset = 0;
+      slideUl.style.left = `${offset}px`;
+    }else{
+      slideUl.style.left = `${offset}px`;
+    }
+    // console.log(offset);
+    // console.log(`${screenWidth*slideAppear.length}임`);
+    // slideUl.style.transform = `translateX(${offset}px)`;
+    slideUl.style.transitionDuration = `0ms`;
+    // console.log(curPos);
+  });
+
+  // touchend = 터치 표면에서 하나 이상의 터치 포인트가 제거될 때 발생
+  container.addEventListener("touchend", (e) => {
+    // e.changedTouches[0].pageX = 터치가 끝난 지점
+    console.log(e.changedTouches[0].pageX);
+    console.log(e.changedTouches[0].pageX - startPos); // 터치가 끝난 지점 - 터치를 시작한 지점
+    // const sum = curPos + (e.changedTouches[0].pageX - startPos); // 터치 시작점에서 움직인 거리
+    const sum = curPos + (e.changedTouches[0].pageX - startPos); // 터치 시작점에서 움직인 거리
+    let destination = Math.round(sum / screenWidth) * screenWidth;
+    console.log("destination=" + destination);
+    if (destination > 0) {
+      destination = 0;
+    } else if (destination < -(screenWidth * (slideAppear.length - 1))) {
+      destination = -(screenWidth * (slideAppear.length - 1));
+    }
+
+    // slideUl.style.transform = `translate3d(${destination}px, 0px, 0px)`;
+    slideUl.style.left = `${destination}px`;
+    slideUl.style.transitionDuration = `300ms`;
+    curPos = destination;
+
+    setTimeout(() => {
+      slideUl.style.transitionDuration = `0ms`;
+    }, 300);
+  });
+};
