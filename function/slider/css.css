@@ -9,20 +9,17 @@ body{
   background: #000;
   overflow: hidden;
 }
-.slider-container{
+#introSlider{
   position: absolute;
-  /* width: 100%; */
   height: inherit;
   padding: 0;
   margin : 0;
   left: 0px;
-  /* display: flex; */
   flex-direction: row;
   transition: 0.3s;
   clear: both;
 }
-.slide{
-  /* position: absolute; */
+.introSlides{
   width: 100vw;
   height: 550px;
   display: inline-block;
@@ -35,7 +32,6 @@ a{
   background: #fff;
   position: absolute;
   top: 50%;
-  /* left: 50%; */
   transform: translateY(-50%);
   border-radius: 50%;
   text-decoration: none;
@@ -50,10 +46,7 @@ a{
   right: 5%;
 }
 
-.animated{
-  transition: left 0.5s ease;
-}
-.minibar{
+.introBanMenu{
   position: absolute;
   bottom: 10px;
   width: auto;
@@ -62,24 +55,25 @@ a{
   transform: translateX(-50%);
   z-index: 1;
 }
-.minibar li{
+.introBanMenu li{
   width: 10px;
   height: 10px;
   display: inline-block;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   transition: 0.5s;
+  margin: 0 3px;
 }
-.minibar li:hover, .minibar li.active{
+.introBanMenu li.active{
   background: rgba(255, 255, 255, 1);
 }
-.minibar li.active{
+.introBanMenu li.active{
   width: 30px;
   border-radius: 10px;
 }
-#slide li.hide, .minibar li.hide{
+#introSlider li.hide, .miniintroBanMenubar li.hide{
   display: none;
 }
-#slide li.appear, .minibar li.appear{
+#introSlider li.show, .introBanMenu li.show{
   display: inline-block;
 }
