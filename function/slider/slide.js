@@ -13,8 +13,8 @@ const introNext = document.querySelector("#next");
 let currentTime = new Date().getTime();
 
   // 이벤트 시간
-const eventStartTime = new Date(2022,7-1,18,10,0).getTime();
-const eventEndTime = new Date(2022,7-1,25,17,1).getTime();
+const eventStartTime = new Date(2022,7-1,24,22,21).getTime();
+const eventEndTime = new Date(2022,7-1,24,22,22).getTime();
 
 // 인트로배너 시작, 종료
 function eventBan(eventStartTime, eventEndTime, slideIndex){
@@ -46,7 +46,8 @@ introSlider.style.width = `${slideShow.length*bodyWidth}px`;
 
 // intro ban menu list 생성 함수
 const introBanMenu = document.querySelector(".introBanMenu");
-let introBanMenuLi = introBanMenu.querySelectorAll("li");
+// let introBanMenuLi = introBanMenu.querySelectorAll("li");
+let introBanMenuLi;
 
 function creatLi(){
   for(let i=0; i<slideShow.length; i++){
